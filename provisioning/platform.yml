@@ -1,0 +1,28 @@
+- hosts: all
+  become: yes
+  tasks:
+    - apt:
+        update_cache: yes
+
+- hosts: influxdb
+  become: yes
+  vars:
+    influxdb_collectd_enabled: "true"
+  roles:
+    - mtchavez.influxdb
+
+- hosts: all
+  become: yes
+  vars:
+    collectd_default_plugins: [CPUFreq, disk, processes, memory, load]
+    collectd_plugins: [network]
+    collectd_plugins_options:
+      network:
+        - Server "{{ hostvars[groups['influxdb'][0]]['ansible_eth1']['ipv4']['address'] }}" "25826"
+  roles:
+    - Stouts.collectd
+
+- hosts: grafana
+  become: yes
+  roles:
+    - redouane.grafana

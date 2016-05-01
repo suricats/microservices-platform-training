@@ -1,0 +1,43 @@
+server1 ansible_ssh_user=vagrant ansible_ssh_private_key_file=../.vagrant/machines/server1/virtualbox/private_key ansible_ssh_host=192.168.0.28
+server2 ansible_ssh_user=vagrant ansible_ssh_private_key_file=../.vagrant/machines/server2/virtualbox/private_key ansible_ssh_host=192.168.0.29
+server3 ansible_ssh_user=vagrant ansible_ssh_private_key_file=../.vagrant/machines/server3/virtualbox/private_key ansible_ssh_host=192.168.0.30
+server4 ansible_ssh_user=vagrant ansible_ssh_private_key_file=../.vagrant/machines/server4/virtualbox/private_key ansible_ssh_host=192.168.0.31
+server5 ansible_ssh_user=vagrant ansible_ssh_private_key_file=../.vagrant/machines/server5/virtualbox/private_key ansible_ssh_host=192.168.0.32
+
+[jenkins]
+server1
+
+[nomad_scheduler]
+server1
+
+[nomad_worker]
+server2
+server3
+
+[consul]
+server4
+
+[mariadb]
+server4
+
+[mongodb]
+server4
+
+[influxdb]
+server4
+
+[rabbitmq]
+server4
+
+[fluentd_server]
+server5
+
+[fluentd_ui]
+server5
+
+[grafana]
+server5
+
+[traefik]
+
+[vault]
