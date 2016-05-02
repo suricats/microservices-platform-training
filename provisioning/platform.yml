@@ -14,7 +14,7 @@
 - hosts: all
   become: yes
   vars:
-    collectd_default_plugins: [CPUFreq, disk, processes, memory, load]
+    collectd_default_plugins: [load, cpu, memory, disk, processes]
     collectd_plugins: [network]
     collectd_plugins_options:
       network:

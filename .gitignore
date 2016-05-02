@@ -1,1 +1,3 @@
 .vagrant
+provisioning/generated_inventory
+provisioning/inventory

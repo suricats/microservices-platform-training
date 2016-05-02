@@ -1,6 +1,19 @@
-vagrant destroy -f
-vagrant up
+RESET=false
+for option in "$@"
+do
+case $option in
+    -r|--reset)
+    RESET=true
+    shift
+    ;;
+esac
+done
 
+if [ $RESET == "true" ]; then
+    vagrant destroy -f
+fi
+
+vagrant up
 static_inventory=provisioning/static_inventory
 generated_inventory=provisioning/generated_inventory
 inventory=provisioning/inventory
