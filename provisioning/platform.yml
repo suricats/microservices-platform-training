@@ -26,3 +26,10 @@
   become: yes
   roles:
     - redouane.grafana
+
+- hosts: fluentd_server
+  become: yes
+  vars:
+    tdagent_conf_copy: tdagent.server.conf
+  roles:
+    - williamyeh.fluentd

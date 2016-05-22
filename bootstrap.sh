@@ -29,4 +29,4 @@ do
     cat $generated_inventory $static_inventory > $inventory
 done
 
-sudo ansible-galaxy install savagegus.consul mtchavez.influxdb Stouts.collectd redouane.grafana 2>&1 > /dev/null
+sudo ansible-galaxy install savagegus.consul mtchavez.influxdb Stouts.collectd redouane.grafana williamyeh.fluentd 2>&1 > /dev/null
